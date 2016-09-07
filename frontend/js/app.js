@@ -8,16 +8,11 @@ function appConfig($routeProvider){
 
   $routeProvider
 
-    .when('/', {
-       templateUrl : 'frontend/manter-ficha/view/ficha-pesquisa.html',
-       controller : 'FichaPesquisaController',
-       controllerAs : 'pesquisaCtrl',
-    })
     .when('/listarAlunos',{
       templateUrl:'frontend/manter-aluno/view/listar-alunos.html',
-      controller:'',
-      controllerAs:'',
+      controller:'ListarAlunosController',
+      controllerAs:'listarCtrl',
     })
-    .otherwise ({ redirectTo: '/' });
+    .otherwise ({ redirectTo: '/listarAlunos' });
 
 }

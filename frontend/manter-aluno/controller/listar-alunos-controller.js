@@ -2,21 +2,21 @@ angular
 .module('app')
 .controller('ListarAlunosController', ListarAlunosController);
 
-FichaPesquisaController.$inject = ['$http', '$uibModal'];
+ListarAlunosController.$inject = ['$http', '$uibModal'];
 
-function FichaPesquisaController ($http, $uibModal){
+function ListarAlunosController ($http, $uibModal){
 
   var self = this;
 
-  self.abrirModalCadastro = abrirModalCadastro;
-  self.abrirModalAlterar = abrirModalAlterar;
+  self.abrirModalCadastroAluno = abrirModalCadastroAluno;
+  self.abrirModalAlterarAluno = abrirModalAlterarAluno;
 
-  function abrirModalCadastro(){
+  function abrirModalCadastroAluno(){
     var modalInstance = $uibModal.open(
       {
-        templateUrl: 'frontend/manter-aluno/view/modal-cadastro-alunos.html',
-        controller: 'ModalCadastroAlunosController',
-        controllerAs: 'modalCadastroAlunosCtrl',
+        templateUrl: 'frontend/manter-aluno/view/modal-cadastrar-alunos.html',
+        controller: 'ModalCadastrarAlunosController',
+        controllerAs: 'modalCadastrarAlunosCtrl',
         size: 'lg',
         resolve: {
                 'id' : function () {
@@ -27,12 +27,12 @@ function FichaPesquisaController ($http, $uibModal){
     );
   }
 
-  function abrirModalAlterar(id){
+  function abrirModalAlterarAluno(id){
     var modalInstance = $uibModal.open(
       {
         templateUrl: 'frontend/manter-aluno/view/modal-cadastro-alunos.html',
-        controller: 'ModalCadastroAlunosController',
-        controllerAs: 'modalCadastroAlunosCtrl',
+        controller: 'ModalCadastrarAlunosController',
+        controllerAs: 'modalCadastrarAlunosCtrl',
         size: 'lg',
         resolve: {
                 'id' : function () {
@@ -43,12 +43,10 @@ function FichaPesquisaController ($http, $uibModal){
     );
   }
 
-
-
-  $http.get('http://localhost/sisadail/backend/index.php/fichas').then(
-    function(resultado) {
-      self.teste = resultado.data;
-    }
-  );
+  // $http.get('http://localhost/sisadail/backend/index.php/fichas').then(
+  //   function(resultado) {
+  //     self.teste = resultado.data;
+  //   }
+  // );
 
 }

@@ -1,14 +1,14 @@
 angular
 .module('app')
-.controller('ModalCadastroAlunosController', ModalCadastroAlunosController);
+.controller('ModalCadastrarAlunosController', ModalCadastrarAlunosController);
 
-ModalCadastroController.$inject = ['$http', '$uibModalInstance', 'id'];
+ModalCadastrarAlunosController.$inject = ['$http', '$uibModalInstance', 'id'];
 
-function ModalCadastroController ($http, $uibModalInstance, id){
+function ModalCadastrarAlunosController ($http, $uibModalInstance, id){
 
   var self = this;
 
-  self.ficha = {
+  self.aluno = {
       idFicha : null,
       tipoPessoa : null,
       nomePessoa : null,
