@@ -1,0 +1,184 @@
+<form  id="form_ficha" name="form_ficha"  class="form-horizontal">
+
+	<div class="modal-header">
+      <h3 class="modal-title" id="modal-title">Cadastrar ficha</h3>
+  </div>
+
+	<div class="modal-body" id="modal-body">
+
+		<input type="hidden" name="id_ficha" ng-model="modalCadastroCtrl.ficha.idFicha">
+
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-3 control-label">Tipo:	</label>
+			<div class="col-sm-9">
+				<div class="radio">
+					<label>
+						<input type="radio" name="tipo_pessoa" id="visitante" ng-model="modalCadastroCtrl.ficha.tipoPessoa" value="VISITANTE" checked>
+							Visitante
+					</label>
+					<label>
+						<input type="radio" name="tipo_pessoa" id="convidado" ng-model="modalCadastroCtrl.ficha.tipoPessoa" value="CONVIDADO">
+							Convidado
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="nome_pessoa" class="col-sm-3 control-label">Nome:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" name="nome_pessoa" id="nome_pessoa" ng-model="modalCadastroCtrl.ficha.nomePessoa">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="idade_pessoa" class="col-sm-3 control-label">Idade:</label>
+			<div class="col-sm-1">
+				<input type="text" class="form-control" name="idade_pessoa" id="idade_pessoa" ng-model="modalCadastroCtrl.ficha.idadePessoa">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="contato" class="col-sm-3 control-label">Whatsapp | Outros telefones:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" name="contato" id="contato" ng-model="modalCadastroCtrl.ficha.contatoPessoa">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="endereco" class="col-sm-3 control-label">Endereço:</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" name="endereco" id="endereco" ng-model="modalCadastroCtrl.ficha.enderecoPessoa">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="email" class="col-sm-3 control-label">E-mail:</label>
+			<div class="col-sm-6">
+				<input type="email" class="form-control" name="email" id="desc-email" ng-model="modalCadastroCtrl.ficha.emailPessoa">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="estado_civil" class="col-sm-3 control-label">Tipo:	</label>
+			<div class="col-sm-9">
+				<div class="radio">
+					<label>
+						<input type="radio" name="estado_civil" id="estado_civil_solteiro" ng-model="modalCadastroCtrl.ficha.estadoCivil" value="SOLTEIRO" checked>
+							Solteiro
+					</label>
+					<label>
+						<input type="radio" name="estado_civil" id="estado_civil_casado" ng-model="modalCadastroCtrl.ficha.estadoCivil" value="CASADO">
+							Casado
+					</label>
+					<label>
+						<input type="radio" name="estado-civil" id="estado_civil_outro" ng-model="modalCadastroCtrl.ficha.estadoCivil" value="OUTRO">
+							Outro
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="numero_filhos" class="col-sm-3 control-label">Filhos:	</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" name="qtd_filhos" id="qqtd_filhos" ng-model="modalCadastroCtrl.ficha.quantidadeFilhos">
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<label for="st_esta_em_igreja" class="col-sm-3 control-label">Atualmente, faz parte de alguma igreja evangélica?	</label>
+			<div class="col-sm-9">
+				<div class="radio">
+					<label>
+						<input type="radio" name="st_esta_em_igreja" id="st_esta_em_igreja_sim" ng-model="modalCadastroCtrl.ficha.isFazParteDeIgreja" value="S" checked>
+							Sim
+					</label>
+					<label>
+						<input type="radio" name="st_esta_em_igreja" id="st_esta_em_igreja_nao" ng-model="modalCadastroCtrl.ficha.isFazParteDeIgreja" value="N">
+							Não
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="st_pertenceu_a_igreja" class="col-sm-3 control-label">Já fez parte de alguma igreja evangélica e, no momento, está afastado?	</label>
+			<div class="col-sm-9">
+				<div class="radio">
+					<label>
+						<input type="radio" name="st_pertenceu_a_igreja" id="st_pertenceu_a_igreja_sim" ng-model="modalCadastroCtrl.ficha.isAfastadoIgreja" value="S" checked>
+							Sim
+					</label>
+					<label>
+						<input type="radio" name="st_pertenceu_a_igreja" id="st_pertenceu_a_igreja_nao"  ng-model="modalCadastroCtrl.ficha.isAfastadoIgreja" value="N">
+							Não
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="st_batizado" class="col-sm-3 control-label">É batizado nas águas??	</label>
+			<div class="col-sm-9">
+				<div class="radio">
+					<label>
+						<input type="radio" name="st_batizado" id="st_batizado_sim"  ng-model="modalCadastroCtrl.ficha.isBatizado"  value="S" checked>
+							Sim
+					</label>
+					<label>
+						<input type="radio" name="st_batizado" id="st_batizado_nao"  ng-model="modalCadastroCtrl.ficha.isBatizado" value="N">
+							Não
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="pedidos_oracao" class="col-sm-3 control-label">Quais são seus pedidos de oração?</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" name="pedidos_oracao" id="pedidos_oracao"  ng-model="modalCadastroCtrl.ficha.pedidosDeOracao" >
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="avaliacao_receptividade" class="col-sm-3 control-label">Como você avalia a receptividade do visitante/convertido?	</label>
+			<div class="col-sm-9">
+				<div class="radio">
+					<label>
+						<input type="radio" name="avaliacao_receptividade" id="avaliacao_receptividade_otima" ng-model="modalCadastroCtrl.ficha.notaReceptividade" value="OTIMA" checked>
+							Ótima
+					</label>
+					<label>
+						<input type="radio" name="avaliacao_receptividade" id="avaliacao_receptividade_regular" ng-model="modalCadastroCtrl.ficha.notaReceptividade" value="REGULAR">
+							Regular
+					</label>
+					<label>
+						<input type="radio" name="avaliacao_receptividade" id="avaliacao_receptividade_ruim" ng-model="modalCadastroCtrl.ficha.notaReceptividade" value="RUIM">
+							Ruim
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="nome_usuario" class="col-sm-3 control-label">Seu nome:</label>
+			<div class="col-sm-3">
+				<input type="text" class="form-control" name="nome_usuario" id="nome_usuario" ng-model="modalCadastroCtrl.ficha.nomeCadastrante">
+			</div>
+
+			<label for="data_preenchimento" class="col-sm-1 control-label">Data:</label>
+			<div class="col-sm-2">
+				<input type="date" class="form-control" name="data_preenchimento" id="data_preenchimento" ng-model="modalCadastroCtrl.ficha.dataCadastro">
+			</div>
+		</div>
+
+  </div>
+
+  <div class="modal-footer">
+      <button class="btn btn-primary" type="button" ng-click="modalCadastroCtrl.cadastrar()">Cadastrar</button>
+      <button class="btn btn-warning" type="button" ng-click="modalCadastroCtrl.fechar()">Fechar</button>
+  </div>
+
+</form>

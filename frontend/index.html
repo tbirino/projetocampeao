@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Sistema de cadastro CH">
+    <meta name="author" content="Vinicius Oliveira da Silva">
+    <title>Cartão CH</title>
+    <!-- Bootstrap core CSS -->
+    <link href="frontend/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluir arquivos CSS aqui -->
+    <link href="frontend/css/custom.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div ng-include="'frontend/menu-sistema/view/menu-topo.html'"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div ng-include="'frontend/menu-sistema/view/menu-lateral.html'"></div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <ng-view></ng-view>
+        </div>
+      </div>
+		</div>
+
+    <!-- Incluir todos as bibliotecas aqui -->
+    <script src="frontend/js/jquery.min.js"></script>
+    <script src="frontend/js/angular.min.js"></script>
+    <script src="frontend/js/angular-animate.min.js"></script>
+    <script src="frontend/js/angular-route.min.js"></script>
+    <script src="frontend/js/angular-resource.min.js"></script>
+    <script src="frontend/js/bootstrap.min.js"></script>
+    <script src="frontend/js/ui-bootstrap.min.js"></script>
+    <!-- Incluir os arquivos JavaScript aqui -->
+    <script src="frontend/js/app.js"></script>
+    <!-- Controllers aqui -->
+	  <script src="frontend/manter-ficha/controller/ficha-pesquisa-controller.js"></script>
+	  <script src="frontend/manter-ficha/controller/modal-cadastro-controller.js"></script>
+    <!-- Services aqui -->
+  </body>
+</html>
