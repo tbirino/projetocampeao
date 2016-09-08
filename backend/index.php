@@ -3,18 +3,18 @@
 set_include_path( implode(PATH_SEPARATOR, array( realpath(dirname(__FILE__) . '/library'), 	get_include_path() ) ) );
 
 require_once 'Slim/Slim.php';
-require_once 'controller/FichaController.php';
+require_once 'controller/AlunoController.php';
 
 $app = new Slim();
-$fichaController = new FichaController();
+$alunoController = new AlunoController();
 
 #INDEX
 
 #CARTAO
 //Rota para busca
-$app->get('/fichas', function() use ( $fichaController ){
+$app->get('/alunos', function() use ( $alunoController ){
 
-	echo json_encode($fichaController->buscarTodos());
+	echo json_encode($alunoController->buscarTodos());
 
 });
 

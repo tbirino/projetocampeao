@@ -43,10 +43,10 @@ function ListarAlunosController ($http, $uibModal){
     );
   }
 
-  // $http.get('http://localhost/sisadail/backend/index.php/fichas').then(
-  //   function(resultado) {
-  //     self.teste = resultado.data;
-  //   }
-  // );
+  $http.get('http://localhost/sisadail/backend/index.php/alunos').then(
+    function(resultado) {
+      self.teste = resultado.data;
+    }
+  );
 
 }
