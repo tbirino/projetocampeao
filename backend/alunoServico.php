@@ -13,22 +13,13 @@ $alunoController = new AlunoController();
 #CARTAO
 //Rota para busca
 $app->get('/alunos', function() use ( $alunoController ){
-
 	echo json_encode($alunoController->buscarTodos());
-
 });
 
-$app->get('/pesquisa_json', function() use ( $alunoController ){
-
-	echo $alunoController->buscarTodos( 'json' );
-
+$app->get('/aluno/:id_aluno', function( $id_aluno ) use ( $alunoController ){
+		echo json_encode($alunoController->buscarAluno( $id_aluno ) );
 });
 
-$app->get('/ficha/:id_ficha', function( $id_ficha ) use ( $alunoController ){
-
-		echo json_encode($alunoController->buscarFicha( $id_ficha ) );
-
-});
 //
 // //Rota para cadastro
 // $app->get('/cadastro', function() use ( $smarty ){

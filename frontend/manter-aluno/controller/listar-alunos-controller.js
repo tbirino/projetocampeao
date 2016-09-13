@@ -43,7 +43,7 @@ function ListarAlunosController ($http, $uibModal){
     );
   }
 
-  $http.get('http://localhost/projetocampeao/backend/index.php/alunos').then(
+  $http.get('http://localhost/projetocampeao/backend/alunoServico.php/alunos').then(
     function(resultado) {
       self.alunos = resultado.data;
     }

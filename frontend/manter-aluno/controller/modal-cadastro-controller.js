@@ -38,7 +38,7 @@ function ModalCadastrarAlunosController ($http, $uibModalInstance, id){
 
   function init(){
     if(id && id > 0){
-      $http.get('http://localhost/sisadail/backend/index.php/alunos/' + id ).then(
+      $http.get('http://localhost/sisadail/backend/alunoServico.php/alunos/' + id ).then(
         function(resultado) {
           self.ficha  = resultado.data[0];
         }
