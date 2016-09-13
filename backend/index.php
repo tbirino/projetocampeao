@@ -18,15 +18,15 @@ $app->get('/alunos', function() use ( $alunoController ){
 
 });
 
-$app->get('/pesquisa_json', function() use ( $fichaController ){
+$app->get('/pesquisa_json', function() use ( $alunoController ){
 
-	echo $fichaController->buscarTodos( 'json' );
+	echo $alunoController->buscarTodos( 'json' );
 
 });
 
-$app->get('/ficha/:id_ficha', function( $id_ficha ) use ( $fichaController ){
+$app->get('/ficha/:id_ficha', function( $id_ficha ) use ( $alunoController ){
 
-		echo json_encode($fichaController->buscarFicha( $id_ficha ) );
+		echo json_encode($alunoController->buscarFicha( $id_ficha ) );
 
 });
 //
@@ -37,25 +37,25 @@ $app->get('/ficha/:id_ficha', function( $id_ficha ) use ( $fichaController ){
 //
 // });
 //
-// $app->post('/cadastro', function() use ( $app, $fichaController ){
+// $app->post('/cadastro', function() use ( $app, $alunoController ){
 //
 // 	$data = $app->request()->post();
-// 	$fichaController->salvarFicha( $data);
+// 	$alunoController->salvarFicha( $data);
 //
 // });
 //
 // //Rota para atualizar
-// $app->put('/cadastro', function() use ( $app, $fichaController ){
+// $app->put('/cadastro', function() use ( $app, $alunoController ){
 //
 // 	$data = $app->request()->put();
-// 	echo $fichaController->salvarFicha( $data );
+// 	echo $alunoController->salvarFicha( $data );
 //
 // });
 //
 // //Rota para remover
-// $app->delete('/cadastro/:idFicha', function( $idFicha ) use ( $app, $fichaController ){
+// $app->delete('/cadastro/:idFicha', function( $idFicha ) use ( $app, $alunoController ){
 //
-// 	echo $fichaController->removerFicha( $idFicha );
+// 	echo $alunoController->removerFicha( $idFicha );
 //
 // });
 

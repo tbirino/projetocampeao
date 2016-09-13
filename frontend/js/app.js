@@ -11,7 +11,7 @@ function appConfig($routeProvider){
     .when('/listarAlunos',{
       templateUrl:'frontend/manter-aluno/view/listar-alunos.html',
       controller:'ListarAlunosController',
-      controllerAs:'listarCtrl',
+      controllerAs:'listarAlunosCtrl',
     })
     .otherwise ({ redirectTo: '/listarAlunos' });
 

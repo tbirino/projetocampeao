@@ -43,9 +43,9 @@ function ListarAlunosController ($http, $uibModal){
     );
   }
 
-  $http.get('http://localhost/sisadail/backend/index.php/alunos').then(
+  $http.get('http://localhost/projetocampeao/backend/index.php/alunos').then(
     function(resultado) {
-      self.teste = resultado.data;
+      self.alunos = resultado.data;
     }
   );
 

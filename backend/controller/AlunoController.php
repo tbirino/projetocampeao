@@ -2,7 +2,7 @@
 
 require_once 'model/Aluno.php';
 
-class FichaController {
+class AlunoController {
 
   public function buscarTodos( $output = "" )
   {
