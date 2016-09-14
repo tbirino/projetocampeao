@@ -10,7 +10,7 @@ $alunoController = new AlunoController();
 
 #INDEX
 
-#CARTAO
+#ALUNO
 //Rota para busca
 $app->get('/alunos', function() use ( $alunoController ){
 
