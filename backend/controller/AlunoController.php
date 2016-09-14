@@ -48,20 +48,32 @@ class AlunoController {
         return $return;
     }
 
-    public function salvarFicha( $ficha )
+    public function salvarAluno( $aluno )
     {
-        $c = array();
+        $return = array();
 
-        if($ficha['id_ficha'])
+        if($aluno['idAluno'])
         {
-            $model = Ficha::find( $ficha['id_ficha'] );
-            $model->ficha = $ficha['ficha'];
+            $return[] = $aluno;
+            $model = Aluno::find( $aluno['idAluno'] );
+            $model->nome = $aluno['nome'];
+            $model->cpf = $aluno['cpf'];
+            $model->rg = $aluno['rg'];
+            $model->dt_nascimento = $aluno['dtNascimento'];
+            $model->endereco = $aluno['endereco'];
+            $model->tel_residencial = $aluno['telResidencial'];
+            $model->tel_celular = $aluno['telCelular'];
+            $model->nome_pai = $aluno['nomePai'];
+            $model->nome_mae = $aluno['nomeMae'];
+            $model->email = $aluno['email'];
+            $model->dt_entrada = $aluno['dtEntrada'];
+            $model->aluno_tipo_sanguineo = $aluno['alunoTipoSanguineo'];
             $model->save();
             $c['status'] = 'update';
         }
         else
         {
-            $model = Ficha::create( $ficha );
+            $model = Aluno::create( $aluno );
             $c['status'] = 'insert';
         }
 

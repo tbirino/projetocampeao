@@ -20,35 +20,12 @@ $app->get('/aluno/:id_aluno', function( $id_aluno ) use ( $alunoController ){
 		echo json_encode($alunoController->buscarAluno( $id_aluno ) );
 });
 
-//
-// //Rota para cadastro
-// $app->get('/cadastro', function() use ( $smarty ){
-//
-// 	$smarty->display( "cadastro.tpl" );
-//
-// });
-//
-// $app->post('/cadastro', function() use ( $app, $alunoController ){
-//
-// 	$data = $app->request()->post();
-// 	$alunoController->salvarFicha( $data);
-//
-// });
-//
-// //Rota para atualizar
-// $app->put('/cadastro', function() use ( $app, $alunoController ){
-//
-// 	$data = $app->request()->put();
-// 	echo $alunoController->salvarFicha( $data );
-//
-// });
-//
-// //Rota para remover
-// $app->delete('/cadastro/:idFicha', function( $idFicha ) use ( $app, $alunoController ){
-//
-// 	echo $alunoController->removerFicha( $idFicha );
-//
-// });
+$app->post('/cadastro',function() use ($app,$alunoController){
+	$app->response()->header("Content-Type", "application/json");
+	$data = json_decode($app->request()->getBody());
+	$post = get_object_vars($data);//Transforma o objeto json em um array PHP
+	echo json_encode($alunoController->salvarAluno($post));
+});
 
 #Run
 $app->run();
