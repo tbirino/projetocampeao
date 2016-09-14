@@ -45,7 +45,7 @@ function FichaPesquisaController ($http, $uibModal){
 
 
 
-  $http.get('http://localhost/sisadail/backend/index.php/fichas').then(
+  $http.get('http://localhost/sisadail/backend/alunoServico.php/fichas').then(
     function(resultado) {
       self.teste = resultado.data;
     }

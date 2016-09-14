@@ -1,5 +1,5 @@
-# sisadail
-Projeto Adail - CRUD Simples
+# CADASTRO DE ALUNOS PROJETOCAMPEAO
+Cadastro de alunos Projeto Campeão - CRUD
 
 Tecnologias:
 - PHP
@@ -7,6 +7,6 @@ Tecnologias:
 - Smarty
 - Slim
 - HTML - CSS - JS
-- Jquery
+- AngularJS
 
-Sistema baseado no projeto de Estudo de caso (Fabio Vedovelli).
+Sistema baseado no projeto SISADAIL - https://github.com/sivinicius/sisadail.git (Vinicius O. Silva).
