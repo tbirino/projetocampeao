@@ -35,7 +35,7 @@ function ModalCadastrarAlunosController ($http, $uibModalInstance, id){
   }
 
   function cadastrar() {
-    $http.post('http://localhost/projetocampeao/backend/alunoServico.php/cadastro', converterObjeto(self.aluno)).then(
+    $http.post('http://localhost:1904/projetocampeao/backend/alunoServico.php/cadastro', converterObjeto(self.aluno)).then(
       function(resultado) {
         limparDados();
       }
@@ -62,7 +62,7 @@ function ModalCadastrarAlunosController ($http, $uibModalInstance, id){
 
   function init(){
     if(id && id > 0){
-      $http.get('http://localhost/projetocampeao/backend/alunoServico.php/alunos/' + id ).then(
+      $http.get('http://localhost:1904/projetocampeao/backend/alunoServico.php/alunos/' + id ).then(
         function(resultado) {
           self.ficha  = resultado.data[0];
         }

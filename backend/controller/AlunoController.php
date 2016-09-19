@@ -52,7 +52,7 @@ class AlunoController {
   {
     $return = array();
 
-    if($aluno['idAluno'])
+    if(false)
     {
       $return[] = $aluno;
       $model = Aluno::find( $aluno['idAluno'] );
