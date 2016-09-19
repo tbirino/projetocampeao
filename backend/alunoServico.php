@@ -21,6 +21,8 @@ $app->get('/aluno/:id_aluno', function( $id_aluno ) use ( $alunoController ){
 });
 
 $app->post('/cadastro',function() use ($app,$alunoController){
+	var_dump($app);
+	var_dump($alunoController);
 	$app->response()->header("Content-Type", "application/json");
 	$data = json_decode($app->request()->getBody());
 	$post = get_object_vars($data);//Transforma o objeto json em um array PHP
