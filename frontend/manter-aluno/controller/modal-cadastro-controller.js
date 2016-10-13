@@ -35,28 +35,35 @@ function ModalCadastrarAlunosController ($http, $uibModalInstance, id){
   }
 
   function cadastrar() {
-    $http.post('http://localhost/projetocampeao/backend/alunoServico.php/cadastro', converterObjeto(self.aluno)).then(
-      function(resultado) {
-        limparDados();
-      }
-    );
+    if(self.aluno.idAluno){
+      $http.put('http://localhost/projetocampeao/backend/alunoServico.php/cadastro', converterObjetoSlim(self.aluno)).then(
+        function(resultado) {
+          limparDados();
+        }
+      );
+    }else {
+      $http.post('http://localhost/projetocampeao/backend/alunoServico.php/cadastro', converterObjetoSlim(self.aluno)).then(
+        function(resultado) {
+          limparDados();
+        }
+      );
+    }
   }
 
-  function converterObjeto(aluno){
+  function converterObjetoSlim(aluno){
     return {
-      'idAluno' : aluno.id_aluno,
+      'id_aluno' : aluno.idAluno,
       'nome': aluno.nome,
       'cpf': aluno.cpf,
       'rg':aluno.rg,
-      'dtNascimento':aluno.dt_nascimento,
-      'telCelular':aluno.tel_celular,
+      'dt_nascimento':aluno.dtEntrada,
+      'tel_celular':aluno.telCelular,
       'endereco':aluno.endereco,
-      'telResidencial':aluno.tel_residencial,
-      'nomePai':aluno.nome_pai,
-      'nomeMae':aluno.nome_mae,
+      'tel_residencial':aluno.telResidencial,
+      'nome_pai':aluno.nomePai,
+      'nome_mae':aluno.nomeMae,
       'email':aluno.email,
-      'dtEntrada':aluno.dt_entrada,
-      'alunoTipoSanguineo':aluno.aluno_tipo_sanguineo
+      'dt_entrada':aluno.dtEntrada,
     };
   }
 
