@@ -30,7 +30,7 @@ function ListarAlunosController ($http, $uibModal){
   function abrirModalAlterarAluno(id){
     var modalInstance = $uibModal.open(
       {
-        templateUrl: 'frontend/manter-aluno/view/modal-cadastro-alunos.html',
+        templateUrl: 'frontend/manter-aluno/view/modal-cadastrar-alunos.html',
         controller: 'ModalCadastrarAlunosController',
         controllerAs: 'modalCadastrarAlunosCtrl',
         size: 'lg',
@@ -42,6 +42,7 @@ function ListarAlunosController ($http, $uibModal){
       }
     );
   }
+
 
   $http.get('http://localhost/projetocampeao/backend/alunoServico.php/alunos').then(
     function(resultado) {

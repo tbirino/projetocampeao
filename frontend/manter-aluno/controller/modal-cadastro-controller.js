@@ -68,10 +68,10 @@ function ModalCadastrarAlunosController ($http, $uibModalInstance, id){
   }
 
   function init(){
-    if(id && id > 0){
-      $http.get('http://localhost:1904/projetocampeao/backend/alunoServico.php/alunos/' + id ).then(
+    if(id){
+      $http.get('http://localhost/projetocampeao/backend/alunoServico.php/aluno/' + id ).then(
         function(resultado) {
-          self.ficha  = resultado.data[0];
+          self.aluno  = resultado.data[0];
         }
       );
     }
