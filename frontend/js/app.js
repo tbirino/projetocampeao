@@ -1,5 +1,5 @@
 angular
-.module('app', ['ngRoute', 'ui.bootstrap'])
+.module('app', ['ngRoute', 'ui.bootstrap','ngMask'])
 .config(appConfig);
 
 appConfig.$inject = ['$routeProvider'];

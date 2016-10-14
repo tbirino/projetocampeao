@@ -42,6 +42,13 @@ class AlunoController {
     $c['rg'] = $aluno->rg;
     $c['dtNascimento'] = $aluno->dt_nascimento;
     $c['telCelular'] = $aluno->tel_celular;
+    $c['dtEntrada'] = $aluno->dt_entrada;
+    $c['email'] = $aluno->email;
+    $c['endereco'] = $aluno->endereco;
+    $c['nomeMae'] = $aluno->nome_mae;
+    $c['nomePai'] = $aluno->nome_pai;
+    $c['telResidencial'] = $aluno->tel_residencial;
+
 
     $return[] = $c;
 
