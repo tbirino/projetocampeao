@@ -36,5 +36,9 @@ $app->put('/alterar', function() use ( $app, $alunoController ){
 	echo json_encode($alunoController->salvarAluno($put));
 });
 
+$app->delete('/excluirAluno/:idAluno', function($idAluno) use ($app, $alunoController){
+	echo $alunoController->excluirAluno($idAluno);
+});
+
 #Run
 $app->run();

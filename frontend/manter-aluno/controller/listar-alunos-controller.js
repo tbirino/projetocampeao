@@ -10,6 +10,15 @@ function ListarAlunosController ($http, $uibModal){
 
   self.abrirModalCadastroAluno = abrirModalCadastroAluno;
   self.abrirModalAlterarAluno = abrirModalAlterarAluno;
+  self.excluirAluno = excluirAluno;
+
+  function excluirAluno(idAluno) {
+    $http.delete('http://localhost/projetocampeao/backend/alunoServico.php/excluirAluno/'+idAluno).then(
+      function(resultado) {
+        console.log("Excluido", resultado);
+      }
+    );
+  }
 
   function abrirModalCadastroAluno(){
     var modalInstance = $uibModal.open(
@@ -19,9 +28,9 @@ function ListarAlunosController ($http, $uibModal){
         controllerAs: 'modalCadastrarAlunosCtrl',
         size: 'lg',
         resolve: {
-                'id' : function () {
-                  return null;
-                }
+          'id' : function () {
+            return null;
+          }
         }
       }
     );
@@ -35,9 +44,9 @@ function ListarAlunosController ($http, $uibModal){
         controllerAs: 'modalCadastrarAlunosCtrl',
         size: 'lg',
         resolve: {
-                'id' : function () {
-                  return id;
-                }
+          'id' : function () {
+            return id;
+          }
         }
       }
     );

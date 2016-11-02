@@ -84,12 +84,12 @@ class AlunoController {
     return $a;
   }
 
-  public function removerFicha( $fichaId )
+  public function excluirAluno($idAluno)
   {
-    $ficha = Ficha::find( $fichaId );
-    return $ficha->delete();
+    $aluno = Aluno::find($idAluno);
+    return $aluno->delete();
   }
-
+  
 }
 
 ?>
