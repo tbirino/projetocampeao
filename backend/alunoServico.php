@@ -24,8 +24,16 @@ $app->post('/cadastro',function() use ($app,$alunoController){
 	$app->response()->header("Content-Type", "application/json");
 	$data = json_decode($app->request()->getBody());
 	$post = get_object_vars($data);//Transforma o objeto json em um array PHP
-	
+
 	echo json_encode($alunoController->salvarAluno($post));
+});
+
+//Rota para atualizar
+$app->put('/alterar', function() use ( $app, $alunoController ){
+	$app->response()->header("Content-Type", "application/json");
+  $data = json_decode($app->request()->getBody());
+  $put = get_object_vars($data);//Transforma o objeto json em um array PHP
+	echo json_encode($alunoController->salvarAluno($put));
 });
 
 #Run

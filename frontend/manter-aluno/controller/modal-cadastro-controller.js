@@ -36,7 +36,7 @@ function ModalCadastrarAlunosController ($http, $uibModalInstance, id){
 
   function cadastrar() {
     if(self.aluno.idAluno){
-      $http.put('http://localhost/projetocampeao/backend/alunoServico.php/cadastro', converterObjetoSlim(self.aluno)).then(
+      $http.put('http://localhost/projetocampeao/backend/alunoServico.php/alterar', converterObjetoSlim(self.aluno)).then(
         function(resultado) {
           limparDados();
         }

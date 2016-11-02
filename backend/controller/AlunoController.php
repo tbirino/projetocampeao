@@ -62,7 +62,17 @@ class AlunoController {
     if($aluno['id_aluno'])
     {
       $model = Aluno::find( $aluno['id_aluno'] );
-      $model->aluno = $aluno['aluno'];
+      $model->nome = $aluno['nome'];
+      $model->cpf = $aluno['cpf'];
+      $model->rg = $aluno['rg'];
+      $model->dt_nascimento = $aluno['dt_nascimento'];
+      $model->tel_celular = $aluno['tel_celular'];
+      $model->dt_entrada = $aluno['dt_entrada'];
+      $model->email = $aluno['email'];
+      $model->endereco = $aluno['endereco'];
+      $model->nome_mae = $aluno['nome_mae'];
+      $model->nome_pai = $aluno['nome_pai'];
+      $model->tel_residencial = $aluno['tel_residencial'];
       $model->save();
       $a['status'] = 'update';
     }
