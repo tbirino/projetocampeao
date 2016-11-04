@@ -2,9 +2,9 @@ angular
 .module('app')
 .controller('ModalCadastrarAlunosController', ModalCadastrarAlunosController);
 
-ModalCadastrarAlunosController.$inject = ['$http', '$uibModalInstance', 'id'];
+ModalCadastrarAlunosController.$inject = ['$http', '$uibModalInstance', 'id','toastr'];
 
-function ModalCadastrarAlunosController ($http, $uibModalInstance, id){
+function ModalCadastrarAlunosController ($http, $uibModalInstance, id, toastr){
 
   var self = this;
   self.cadastrar = cadastrar;
@@ -38,13 +38,15 @@ function ModalCadastrarAlunosController ($http, $uibModalInstance, id){
     if(self.aluno.idAluno){
       $http.put('http://localhost/projetocampeao/backend/alunoServico.php/alterar', converterObjetoSlim(self.aluno)).then(
         function(resultado) {
-          limparDados();
+          toastr.success('Aluno alterado com sucesso');
+          $uibModalInstance.close();
         }
       );
     }else {
       $http.post('http://localhost/projetocampeao/backend/alunoServico.php/cadastro', converterObjetoSlim(self.aluno)).then(
         function(resultado) {
-          limparDados();
+          toastr.success('Aluno cadastrado com sucesso');
+          $uibModalInstance.close();
         }
       );
     }
