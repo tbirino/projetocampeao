@@ -1,10 +1,12 @@
 angular
-.module('app', ['ngRoute', 'ui.bootstrap','ngMask','toastr'])
+.module('app', ['ngRoute', 'ui.bootstrap','ngMask','toastr','restangular'])
 .config(appConfig);
 
-appConfig.$inject = ['$routeProvider','toastrConfig'];
+appConfig.$inject = ['$routeProvider','toastrConfig','RestangularProvider'];
 
-function appConfig($routeProvider,toastrConfig){
+function appConfig($routeProvider,toastrConfig,RestangularProvider){
+
+RestangularProvider.setBaseUrl('http://localhost/projetocampeao/backend/');
 
   angular.extend(toastrConfig, {
     autoDismiss: false,

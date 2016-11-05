@@ -2,23 +2,28 @@ angular
 .module('app')
 .controller('ListarAlunosController', ListarAlunosController);
 
-ListarAlunosController.$inject = ['$http', '$uibModal','toastr'];
+ListarAlunosController.$inject = ['$http', '$uibModal','toastr','Restangular'];
 
-function ListarAlunosController ($http, $uibModal,toastr){
+function ListarAlunosController ($http, $uibModal,toastr,Restangular){
 
   var self = this;
+  var path = 'alunoServico.php/';
 
   self.abrirModalCadastroAluno = abrirModalCadastroAluno;
   self.abrirModalAlterarAluno = abrirModalAlterarAluno;
   self.excluirAluno = excluirAluno;
 
   function init() {
+    return Restangular.all('alunoServico.php/alunos').getList().then(function(resultado) {
+      self.alunos = resultado.plain();
+    });
+    /*
     $http.get('http://localhost/projetocampeao/backend/alunoServico.php/alunos').then(
       function(resultado) {
         self.alunos = resultado.data;
       }
     );
-
+*/
   }
 
   init();
