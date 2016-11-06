@@ -14,27 +14,18 @@ function ListarAlunosController ($http, $uibModal,toastr,Restangular){
   self.excluirAluno = excluirAluno;
 
   function init() {
-    return Restangular.all('alunoServico.php/alunos').getList().then(function(resultado) {
+    return Restangular.all(path + '/alunos').getList().then(function(resultado) {
       self.alunos = resultado.plain();
     });
-    /*
-    $http.get('http://localhost/projetocampeao/backend/alunoServico.php/alunos').then(
-      function(resultado) {
-        self.alunos = resultado.data;
-      }
-    );
-*/
+
   }
 
-  init();
-
   function excluirAluno(idAluno) {
-    $http.delete('http://localhost/projetocampeao/backend/alunoServico.php/excluirAluno/'+idAluno).then(
-      function(resultado) {
-        toastr.success('O aluno foi excluido do banco de dados!');
-        init();
-      }
-    );
+    Restangular.one(path + '/excluirAluno', idAluno).remove().then(function(resultado) {
+      toastr.success('O aluno foi excluido do banco de dados!');
+      init();
+    });
+
   }
 
   function abrirModalCadastroAluno(){
@@ -74,6 +65,8 @@ function ListarAlunosController ($http, $uibModal,toastr,Restangular){
       init();
     });
   }
+
+  init();
 
 
 }

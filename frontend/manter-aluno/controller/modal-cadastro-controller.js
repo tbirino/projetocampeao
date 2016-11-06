@@ -2,11 +2,12 @@ angular
 .module('app')
 .controller('ModalCadastrarAlunosController', ModalCadastrarAlunosController);
 
-ModalCadastrarAlunosController.$inject = ['$http', '$uibModalInstance', 'id','toastr'];
+ModalCadastrarAlunosController.$inject = ['$http', '$uibModalInstance', 'id','toastr','Restangular'];
 
-function ModalCadastrarAlunosController ($http, $uibModalInstance, id, toastr){
+function ModalCadastrarAlunosController ($http, $uibModalInstance, id, toastr,Restangular){
 
   var self = this;
+  var path = 'alunoServico.php/';
   self.cadastrar = cadastrar;
   self.fechar = fechar;
 
@@ -36,19 +37,15 @@ function ModalCadastrarAlunosController ($http, $uibModalInstance, id, toastr){
 
   function cadastrar() {
     if(self.aluno.idAluno){
-      $http.put('http://localhost/projetocampeao/backend/alunoServico.php/alterar', converterObjetoSlim(self.aluno)).then(
-        function(resultado) {
-          toastr.success('Aluno alterado com sucesso');
-          $uibModalInstance.close();
-        }
-      );
+      Restangular.one(path + '/alterar').customPUT(converterObjetoSlim(self.aluno)).then(function(resultado) {
+        toastr.success('Aluno alterado com sucesso');
+        $uibModalInstance.close();
+      });
     }else {
-      $http.post('http://localhost/projetocampeao/backend/alunoServico.php/cadastro', converterObjetoSlim(self.aluno)).then(
-        function(resultado) {
-          toastr.success('Aluno cadastrado com sucesso');
-          $uibModalInstance.close();
-        }
-      );
+      Restangular.all(path + '/cadastro').post(converterObjetoSlim(self.aluno)).then(function(resultado) {
+        toastr.success('Aluno cadastrado com sucesso');
+        $uibModalInstance.close();
+      });
     }
   }
 
@@ -71,11 +68,16 @@ function ModalCadastrarAlunosController ($http, $uibModalInstance, id, toastr){
 
   function init(){
     if(id){
+      Restangular.one(path + '/aluno/' + id).get().then(function(resultado) {
+        self.aluno = resultado.plain()[0];
+      });
+
+      /*
       $http.get('http://localhost/projetocampeao/backend/alunoServico.php/aluno/' + id ).then(
         function(resultado) {
           self.aluno  = resultado.data[0];
         }
-      );
+      );*/
     }
   }
 
