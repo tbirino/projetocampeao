@@ -1,5 +1,5 @@
 angular
-    .module('app', ['ngRoute', 'ui.bootstrap', 'ngMask', 'toastr', 'restangular'])
+    .module('app', ['ngRoute', 'ui.bootstrap', 'ngMask', 'toastr', 'restangular','ngTable'])
     .config(appConfig);
 
 appConfig.$inject = ['$routeProvider', 'toastrConfig', 'RestangularProvider'];
