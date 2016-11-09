@@ -1,48 +1,37 @@
 <div class="row">
-	<h1 class="page-header placeholders">
-		<span class="col-md-1">Alunos</span>
-		<div class="text-right">
-			<button type="button" class="btn btn-primary"
-				ng-click="listarAlunosCtrl.abrirModalCadastroAluno()">
-				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-				Novo Aluno
-			</button>
-		</div>
-	</h1>
+    <h1 class="page-header placeholders">
+        <span class="col-md-1">Alunos</span>
+        <div class="text-right">
+            <button type="button" class="btn btn-primary" ng-click="listarAlunosCtrl.abrirModalCadastroAluno()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Novo Aluno
+            </button>
+        </div>
+    </h1>
 </div>
 <div class="row">
-	<table id="tabela-de-alunos" class="table table-hover">
-		<thead>
-			<tr>
-				<th>Nome</th>
-				<th>CPF</th>
-				<th>RG</th>
-				<th>Data Nascimento</th>
-				<th>Celular</th>
-				<th>Ações</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="aluno in listarAlunosCtrl.alunos">
-				<td>{{aluno.nome}}</td>
-				<td>{{aluno.cpf}}</td>
-				<td>{{aluno.rg}}</td>
-				<td>{{aluno.dtNascimento}}</td>
-				<td>{{aluno.telCelular}}</td>
-				<td>
-					<button class="btn btn-warning" type="button"
-						ng-click="listarAlunosCtrl.abrirModalAlterarAluno(aluno.idAluno)">
-						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-						Alterar
-					</button>
-					<button class="btn btn-danger" type="button"
-						ng-click="listarAlunosCtrl.excluirAluno(aluno.idAluno)">
-						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-						Excluir
-					</button>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+    <table id="tabela-de-alunos" class="table table-hover" ng-table="listarAlunosCtrl.tblAlunos">
+        <tr ng-repeat="aluno in $data" class="text-center">
+            <td data-title="'Nome'" sortable="'nome'">{{aluno.nome}}</td>
+            <td data-title="'CPF'" sortable="'cpf'">{{aluno.cpf}}</td>
+            <td data-title="'RG'" sortable="'rg'">{{aluno.rg}}</td>
+            <td data-title="'Data de Nascimento'" sortable="'dtNascimento'">{{aluno.dtNascimento}}</td>
+            <td data-title="'Celular'" sortable="'telCelular'">{{aluno.telCelular}}</td>
+            <td data-title="'Açoes'">
+                <button class="btn btn-info btn-sm" type="button" ng-click="listarAlunosCtrl.abrirModalExibirAluno(aluno.idAluno)">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    Visualizar
+                </button>
+                <button class="btn btn-warning btn-sm" type="button" ng-click="listarAlunosCtrl.abrirModalAlterarAluno(aluno.idAluno)">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    Alterar
+                </button>
+                <button class="btn btn-danger btn-sm" type="button" ng-click="listarAlunosCtrl.excluirAluno(aluno.idAluno)">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    Excluir
+                </button>
+            </td>
+        </tr>
+    </table>
 
 </div>

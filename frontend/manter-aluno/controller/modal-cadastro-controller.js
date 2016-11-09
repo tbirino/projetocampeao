@@ -55,7 +55,7 @@ function ModalCadastrarAlunosController($http, $uibModalInstance, id, toastr, Re
             'nome': aluno.nome,
             'cpf': aluno.cpf,
             'rg': aluno.rg,
-            'dt_nascimento': aluno.dtEntrada,
+            'dt_nascimento': aluno.dtNascimento,
             'tel_celular': aluno.telCelular,
             'endereco': aluno.endereco,
             'tel_residencial': aluno.telResidencial,
