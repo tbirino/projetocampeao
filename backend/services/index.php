@@ -10,7 +10,6 @@ $fichaController = new FichaController();
 
 #INDEX
 
-#CARTAO
 //Rota para busca
 $app->get('/fichas', function() use ( $fichaController ){
 
