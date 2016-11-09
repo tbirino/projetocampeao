@@ -79,7 +79,7 @@ function ListarAlunosController($http, $uibModal, toastr, Restangular, NgTablePa
         var modalInstance = $uibModal.open({
             templateUrl: 'frontend/manter-aluno/view/modal-exibir-alunos.html',
             controller: 'ModalExibirAlunosController',
-            controllerAs: 'ModalExibirAlunosCtrl',
+            controllerAs: 'modalExibirAlunosCtrl',
             size: 'lg',
             resolve: {
                 'id': function() {
