@@ -1,0 +1,8 @@
+{
+    "propel": {
+        "paths": {
+            "schemaDir": "C:\\xampp\\htdocs\\projetocampeao\\backend\\settings",
+            "phpDir": "C:\\xampp\\htdocs\\projetocampeao\\backend"
+        }
+    }
+}
