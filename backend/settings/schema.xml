@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" namespace="model" defaultPhpNamingMethod="underscore">
+  <table name="aluno_turma" idMethod="native" phpName="AlunoTurma" namespace="model">
+    <column name="SQ_PESSOA" phpName="SqPessoa" type="INTEGER" required="true"/>
+    <column name="SQ_TURMA" phpName="SqTurma" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="pessoa" name="fk_ALUNO_TURMA_ALUNO">
+      <reference local="SQ_PESSOA" foreign="SQ_PESSOA"/>
+    </foreign-key>
+    <foreign-key foreignTable="turma" name="fk_ALUNO_TURMA_TURMA1">
+      <reference local="SQ_TURMA" foreign="SQ_TURMA"/>
+    </foreign-key>
+    <index name="fk_ALUNO_TURMA_ALUNO_idx">
+      <index-column name="SQ_PESSOA"/>
+    </index>
+    <index name="fk_ALUNO_TURMA_TURMA1_idx">
+      <index-column name="SQ_TURMA"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="endereco" idMethod="native" phpName="Endereco" namespace="model">
+    <column name="SQ_ENDERECO" phpName="SqEndereco" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="BAIRRO" phpName="Bairro" type="VARCHAR" size="50"/>
+    <column name="RUA" phpName="Rua" type="VARCHAR" size="50"/>
+    <column name="CEP" phpName="Cep" type="VARCHAR" size="10"/>
+    <column name="COMPLEMENTO" phpName="Complemento" type="VARCHAR" size="50"/>
+    <column name="CIDADE" phpName="Cidade" type="VARCHAR" size="50"/>
+    <column name="NUMERO" phpName="Numero" type="VARCHAR" size="20"/>
+    <column name="ID_UF" phpName="IdUf" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="uf" name="fk_ENDERECO_UF1">
+      <reference local="ID_UF" foreign="ID_UF"/>
+    </foreign-key>
+    <index name="fk_ENDERECO_UF1_idx">
+      <index-column name="ID_UF"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="faixa" idMethod="native" phpName="Faixa" namespace="model">
+    <column name="ID_FAIXA" phpName="IdFaixa" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="DS_FAIXA" phpName="DsFaixa" type="VARCHAR" size="50"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="modalidade" idMethod="native" phpName="Modalidade" namespace="model">
+    <column name="ID_MODALIDADE" phpName="IdModalidade" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="DESCRICAO" phpName="Descricao" type="VARCHAR" size="50"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="pessoa" idMethod="native" phpName="Pessoa" namespace="model">
+    <column name="SQ_PESSOA" phpName="SqPessoa" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="NOME" phpName="Nome" type="VARCHAR" size="50" required="true"/>
+    <column name="RG" phpName="Rg" type="VARCHAR" size="9" required="true"/>
+    <column name="CPF" phpName="Cpf" type="VARCHAR" size="14" required="true"/>
+    <column name="DT_NASCIMENTO" phpName="DtNascimento" type="TIMESTAMP"/>
+    <column name="TEL_RESIDENCIAL" phpName="TelResidencial" type="VARCHAR" size="14"/>
+    <column name="TEL_CELULAR" phpName="TelCelular" type="VARCHAR" size="14"/>
+    <column name="NOME_PAI" phpName="NomePai" type="VARCHAR" size="50"/>
+    <column name="NOME_MAE" phpName="NomeMae" type="VARCHAR" size="50"/>
+    <column name="EMAIL" phpName="Email" type="VARCHAR" size="100"/>
+    <column name="DT_ENTRADA" phpName="DtEntrada" type="TIMESTAMP"/>
+    <column name="SQ_ENDERECO" phpName="SqEndereco" type="INTEGER" required="true"/>
+    <column name="ID_FAIXA" phpName="IdFaixa" type="INTEGER"/>
+    <foreign-key foreignTable="endereco" name="fk_PESSOA_ENDERECO1">
+      <reference local="SQ_ENDERECO" foreign="SQ_ENDERECO"/>
+    </foreign-key>
+    <foreign-key foreignTable="faixa" name="fk_PESSOA_FAIXA1">
+      <reference local="ID_FAIXA" foreign="ID_FAIXA"/>
+    </foreign-key>
+    <index name="fk_PESSOA_ENDERECO1_idx">
+      <index-column name="SQ_ENDERECO"/>
+    </index>
+    <index name="fk_PESSOA_FAIXA1_idx">
+      <index-column name="ID_FAIXA"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="turma" idMethod="native" phpName="Turma" namespace="model">
+    <column name="SQ_TURMA" phpName="SqTurma" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="HORARIO" phpName="Horario" type="TIME" required="true"/>
+    <column name="SQ_PESSOA" phpName="SqPessoa" type="INTEGER" required="true"/>
+    <column name="ID_MODALIDADE" phpName="IdModalidade" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="modalidade" name="fk_TURMA_MODALIDADE1">
+      <reference local="ID_MODALIDADE" foreign="ID_MODALIDADE"/>
+    </foreign-key>
+    <foreign-key foreignTable="pessoa" name="fk_TURMA_PESSOA1">
+      <reference local="SQ_PESSOA" foreign="SQ_PESSOA"/>
+    </foreign-key>
+    <index name="fk_TURMA_PESSOA1_idx">
+      <index-column name="SQ_PESSOA"/>
+    </index>
+    <index name="fk_TURMA_MODALIDADE1_idx">
+      <index-column name="ID_MODALIDADE"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="uf" idMethod="native" phpName="Uf" namespace="model">
+    <column name="ID_UF" phpName="IdUf" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="NM_UF" phpName="NmUf" type="VARCHAR" size="2"/>
+    <column name="DS_UF" phpName="DsUf" type="VARCHAR" size="50"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>
